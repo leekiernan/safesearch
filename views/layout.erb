@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/bootstrap.min.css">
+
+  <style>
+    body {
+      padding:2em 0 1em;
+    }
+    ul {
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    li {
+      text-align:center;
+      border-bottom:1px solid #F90;
+      margin-bottom:1em;
+    }
+    p.paginate {
+      text-align:center;
+    }
+    div.center {
+      text-align:center;
+      margin-bottom:4em;
+    }
+    div.center img {
+      display:inline-block;
+    }
+    h2 {
+      background:#ccc;
+    }
+    ul img {
+      outline:1px solid #CCC;
+      border:2px solid #444;
+    }
+    form {
+      text-align: center;
+      padding: 1em 0;
+    }
+    input {
+      width:300px;
+    }
+    input, button {
+      height:30px;
+      border:1px solid #CCC;
+      outline:none;
+      display:inline-block;
+      vertical-align: top;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="center">
+    <img src="http://www.turniton.co.uk/templates/turniton/images/logo.png" alt="">
+    <form action="/search" method="GET">
+      <input type="text" placeholder="Enter your search term" name="q" value="<%= params['q'] || '' %>">
+      <button type="submit">Go!</button>
+      </form>
+  </div>
+
+  <%= yield %>
+</body>
+
+</html>

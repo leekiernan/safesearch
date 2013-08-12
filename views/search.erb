@@ -1,0 +1,32 @@
+<ul>
+  <% @results.items.each do |result| %>
+
+  <li style="clear:both;margin:1em 0;overflow:hidden;">
+    <% unless result['pagemap'].nil? || result['pagemap']['cse_thumbnail'].nil? %>
+      <img
+        src="<%= result.pagemap.cse_thumbnail[0].src %>"
+        alt=""
+        width="<%= result.pagemap.cse_thumbnail[0].width %>"
+        height="<%= result.pagemap.cse_thumbnail[0].height %>"
+        >
+    <% end %>
+
+    <h2><%= result.title %></h2>
+    <p><a href="<%= result.link %>"><%= result.htmlFormattedUrl %></a></p>
+    <p><%= result.snippet %></p>
+  </li>
+
+  <% end %>
+</ul>
+
+<p class="paginate">
+  <%= @results.searchInformation.formattedTotalResults %> results: page <%= @page %> of <%= @results.searchInformation.totalResults.to_i / 10 %>
+
+  <br><br>
+
+  <% if @page > 1 %>
+    <a href="/search?q=<%= params['q'] %>&page=<%= @page - 1 %>">Back</a>
+    &nbsp;|&nbsp;
+  <% end %>
+  <a href="/search?q=<%= params['q'] %>&page=<%= @page + 1 %>">Next</a>
+</p>
