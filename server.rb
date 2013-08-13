@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'sinatra'
 require 'net/https'
 require 'json'
